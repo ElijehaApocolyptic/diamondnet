@@ -1,0 +1,3683 @@
+(function toggleClassAndInjectStyleRule(pseudoType, hidden) {
+  const classNamePrefix = '__web-inspector-hide';
+  const classNameSuffix = '-shortcut__';
+  const styleTagId = '__web-inspector-hide-shortcut-style__';
+  const selectors = [];
+  selectors.push('.__web-inspector-hide-shortcut__');
+  selectors.push('.__web-inspector-hide-shortcut__ *');
+  selectors.push('.__web-inspector-hidebefore-shortcut__::before');
+  selectors.push('.__web-inspector-hideafter-shortcut__::after');
+  const selector = selectors.join(', ');
+  const ruleBody = '    visibility: hidden !important;';
+  const rule = '\n' + selector + '\n{\n' + ruleBody + '\n}\n';
+  const className = classNamePrefix + (pseudoType || '') + classNameSuffix;
+  this.classList.toggle(className, hidden);
+  let localRoot = this;
+  while (localRoot.parentNode)
+    localRoot = localRoot.parentNode;
+  if (localRoot.nodeType === Node.DOCUMENT_NODE)
+    localRoot = document.head;
+  let style = localRoot.querySelector('style#' + styleTagId);
+  if (style)
+    return;
+  style = document.createElement('style');
+  style.id = styleTagId;
+  style.type = 'text/css';
+  style.textContent = rule;
+  localRoot.appendChild(style);
+}
+)
+fetch("http://www.explorer.net/favicon.ico", {"credentials":"omit","referrer":"http://www.explorer.net/","referrerPolicy":"no-referrer-when-downgrade","body":null,"method":"GET","mode":"cors"});
+curl 'http://www.explorer.net/favicon.ico' -H 'Referer: http://www.explorer.net/' -H 'User-Agent: Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36' -H 'DNT: 1' --compressed --insecure
+{
+  "log": {
+    "version": "1.2",
+    "creator": {
+      "name": "WebInspector",
+      "version": "537.36"
+    },
+    "pages": [
+      {
+        "startedDateTime": "2019-06-29T11:38:43.432Z",
+        "id": "page_1",
+        "title": "http://explorer.net/",
+        "pageTimings": {
+          "onContentLoad": 1451.9089999994321,
+          "onLoad": 2490.965999999389
+        }
+      }
+    ],
+    "entries": [
+      {
+        "startedDateTime": "2019-06-29T11:38:43.367Z",
+        "time": 219.00600000117265,
+        "request": {
+          "method": "GET",
+          "url": "http://explorer.net/",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Host",
+              "value": "explorer.net"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Upgrade-Insecure-Requests",
+              "value": "1"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 463,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 301,
+          "statusText": "Moved Permanently",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "location",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "Server",
+              "value": "DPS/1.6.8"
+            },
+            {
+              "name": "X-SiteId",
+              "value": "1000"
+            },
+            {
+              "name": "Set-Cookie",
+              "value": "dps_site_id=1000; path=/"
+            },
+            {
+              "name": "ETag",
+              "value": "109f0cda4e3880b92af59c3dc5924977"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 29 Jun 2019 11:38:43 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Transfer-Encoding",
+              "value": "chunked"
+            }
+          ],
+          "cookies": [
+            {
+              "name": "dps_site_id",
+              "value": "1000",
+              "path": "/",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "content": {
+            "size": 0,
+            "mimeType": "x-unknown",
+            "compression": 0
+          },
+          "redirectURL": "http://www.explorer.net/",
+          "headersSize": 295,
+          "bodySize": 0,
+          "_transferSize": 295
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 65.52900000133377,
+          "dns": 0,
+          "ssl": -1,
+          "connect": 50.136,
+          "send": 0.27999999999999403,
+          "wait": 78.25899999993015,
+          "receive": 24.80199999990873,
+          "_blocked_queueing": 65.52900000133377
+        },
+        "serverIPAddress": "72.167.191.69",
+        "_initiator": {
+          "type": "other"
+        },
+        "_priority": "VeryHigh",
+        "_resourceType": "other",
+        "connection": "39839",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:43.586Z",
+        "time": 182.55499999941094,
+        "request": {
+          "method": "GET",
+          "url": "http://www.explorer.net/",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Host",
+              "value": "www.explorer.net"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Pragma",
+              "value": "no-cache"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "name": "Upgrade-Insecure-Requests",
+              "value": "1"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            },
+            {
+              "name": "Accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3"
+            },
+            {
+              "name": "Accept-Encoding",
+              "value": "gzip, deflate"
+            },
+            {
+              "name": "Accept-Language",
+              "value": "en-US,en;q=0.9"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": 467,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "HTTP/1.1",
+          "headers": [
+            {
+              "name": "Link",
+              "value": "<http://www.explorer.net/site.css?v=>; rel=preload; as=style,<https://fonts.googleapis.com>; rel=preconnect; crossorigin,<https://fonts.gstatic.com>; rel=preconnect; crossorigin,<https://img1.wsimg.com>; rel=preconnect; crossorigin,<https://img2.wsimg.com>; rel=preconnect; crossorigin,<https://img4.wsimg.com>; rel=preconnect; crossorigin,<http://img4.wsimg.com>; rel=preconnect; crossorigin,<http://nebula.wsimg.com>; rel=preconnect; crossorigin"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "public, max-age=60, s-maxage=300"
+            },
+            {
+              "name": "Content-Security-Policy",
+              "value": "frame-ancestors 'self' websitebuilder.godaddy.com websitebuilder.secureserver.net"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "name": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "Content-Encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "Server",
+              "value": "DPS/1.6.8"
+            },
+            {
+              "name": "X-SiteId",
+              "value": "1000"
+            },
+            {
+              "name": "Set-Cookie",
+              "value": "dps_site_id=1000; path=/"
+            },
+            {
+              "name": "ETag",
+              "value": "109f0cda4e3880b92af59c3dc5924977"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 29 Jun 2019 11:38:43 GMT"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Transfer-Encoding",
+              "value": "chunked"
+            }
+          ],
+          "cookies": [
+            {
+              "name": "dps_site_id",
+              "value": "1000",
+              "path": "/",
+              "expires": null,
+              "httpOnly": false,
+              "secure": false
+            }
+          ],
+          "content": {
+            "size": 5772,
+            "mimeType": "text/html",
+            "compression": 3482
+          },
+          "redirectURL": "",
+          "headersSize": 920,
+          "bodySize": 2290,
+          "_transferSize": 3210
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 16.73299999991339,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.125,
+          "wait": 67.71700000085495,
+          "receive": 97.9799999986426,
+          "_blocked_queueing": 12.056999999913387
+        },
+        "serverIPAddress": "72.167.191.69",
+        "_initiator": {
+          "type": "other"
+        },
+        "_priority": "VeryHigh",
+        "_resourceType": "document",
+        "connection": "39845",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:43.779Z",
+        "time": 396.47300000069663,
+        "request": {
+          "method": "GET",
+          "url": "http://www.explorer.net/site.css?v=",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "v",
+              "value": ""
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Content-Security-Policy",
+              "value": "frame-ancestors 'self' websitebuilder.godaddy.com websitebuilder.secureserver.net"
+            },
+            {
+              "name": "Content-Encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "Server",
+              "value": "DPS/1.6.8"
+            },
+            {
+              "name": "ETag",
+              "value": "f2ee47c4fe19847b4ce3eecdf669e19d"
+            },
+            {
+              "name": "X-SiteId",
+              "value": "1000"
+            },
+            {
+              "name": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/css"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "public, max-age=60, s-maxage=300"
+            },
+            {
+              "name": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Link",
+              "value": "<http://www.explorer.net/site.css?v=>; rel=preload; as=style,<https://fonts.googleapis.com>; rel=preconnect; crossorigin,<https://fonts.gstatic.com>; rel=preconnect; crossorigin,<https://img1.wsimg.com>; rel=preconnect; crossorigin,<https://img2.wsimg.com>; rel=preconnect; crossorigin,<https://img4.wsimg.com>; rel=preconnect; crossorigin,<http://img4.wsimg.com>; rel=preconnect; crossorigin,<http://nebula.wsimg.com>; rel=preconnect; crossorigin"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 29 Jun 2019 11:38:44 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 19947,
+            "mimeType": "text/css"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 5344
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 209.5560000005467,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.10699999999999932,
+          "wait": 158.62400000059955,
+          "receive": 28.185999999550404,
+          "_blocked_queueing": 106.86200000054669
+        },
+        "serverIPAddress": "72.167.191.69",
+        "_initiator": {
+          "type": "other"
+        },
+        "_priority": "VeryHigh",
+        "_resourceType": "stylesheet",
+        "connection": "39845",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:43.806Z",
+        "time": 243.36800000196126,
+        "request": {
+          "method": "GET",
+          "url": "http://fonts.googleapis.com/css?family=Fredericka+the+Great|Allura|Amatic+SC|Arizonia|Averia+Sans+Libre|Cabin+Sketch|Francois+One|Jacques+Francois+Shadow|Josefin+Slab|Kaushan+Script|Love+Ya+Like+A+Sister|Merriweather|Offside|Open+Sans|Open+Sans+Condensed|Oswald|Over+the+Rainbow|Pacifico|Romanesco|Sacramento|Seaweed+Script|Special+Elite",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "family",
+              "value": "Fredericka+the+Great|Allura|Amatic+SC|Arizonia|Averia+Sans+Libre|Cabin+Sketch|Francois+One|Jacques+Francois+Shadow|Josefin+Slab|Kaushan+Script|Love+Ya+Like+A+Sister|Merriweather|Offside|Open+Sans|Open+Sans+Condensed|Oswald|Over+the+Rainbow|Pacifico|Romanesco|Sacramento|Seaweed+Script|Special+Elite"
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 307,
+          "statusText": "Internal Redirect",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Location",
+              "value": "https://fonts.googleapis.com/css?family=Fredericka+the+Great|Allura|Amatic+SC|Arizonia|Averia+Sans+Libre|Cabin+Sketch|Francois+One|Jacques+Francois+Shadow|Josefin+Slab|Kaushan+Script|Love+Ya+Like+A+Sister|Merriweather|Offside|Open+Sans|Open+Sans+Condensed|Oswald|Over+the+Rainbow|Pacifico|Romanesco|Sacramento|Seaweed+Script|Special+Elite"
+            },
+            {
+              "name": "Non-Authoritative-Reason",
+              "value": "HSTS"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 0,
+            "mimeType": "x-unknown"
+          },
+          "redirectURL": "https://fonts.googleapis.com/css?family=Fredericka+the+Great|Allura|Amatic+SC|Arizonia|Averia+Sans+Libre|Cabin+Sketch|Francois+One|Jacques+Francois+Shadow|Josefin+Slab|Kaushan+Script|Love+Ya+Like+A+Sister|Merriweather|Offside|Open+Sans|Open+Sans+Condensed|Oswald|Over+the+Rainbow|Pacifico|Romanesco|Sacramento|Seaweed+Script|Special+Elite",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 0
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 154.9970000003177,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": -6.784688366678893e-10,
+          "receive": 88.37100000164355,
+          "_blocked_queueing": 83.9880000003177
+        },
+        "serverIPAddress": "",
+        "_initiator": {
+          "type": "parser",
+          "url": "http://www.explorer.net/",
+          "lineNumber": 0
+        },
+        "_priority": "VeryHigh",
+        "_resourceType": "other",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:43.808Z",
+        "time": 247.5650000002907,
+        "request": {
+          "method": "GET",
+          "url": "http://fonts.googleapis.com/css?family=Open+Sans",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "family",
+              "value": "Open+Sans"
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 307,
+          "statusText": "Internal Redirect",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Location",
+              "value": "https://fonts.googleapis.com/css?family=Open+Sans"
+            },
+            {
+              "name": "Non-Authoritative-Reason",
+              "value": "HSTS"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 0,
+            "mimeType": "x-unknown"
+          },
+          "redirectURL": "https://fonts.googleapis.com/css?family=Open+Sans",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 0
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 159.34900000018848,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": -6.230607141333167e-10,
+          "receive": 88.21600000010221,
+          "_blocked_queueing": 82.19300000018848
+        },
+        "serverIPAddress": "",
+        "_initiator": {
+          "type": "parser",
+          "url": "http://www.explorer.net/",
+          "lineNumber": 0
+        },
+        "_priority": "VeryHigh",
+        "_resourceType": "other",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:43.809Z",
+        "time": 247.6900000007893,
+        "request": {
+          "method": "GET",
+          "url": "http://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "appid",
+              "value": "O3BkA5J1"
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 307,
+          "statusText": "Internal Redirect",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Location",
+              "value": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1#TzNCa0E1SjF2Mi41Ljdwcm9k"
+            },
+            {
+              "name": "Non-Authoritative-Reason",
+              "value": "HSTS"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 0,
+            "mimeType": "x-unknown"
+          },
+          "redirectURL": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1#TzNCa0E1SjF2Mi41Ljdwcm9k",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 0
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 158.9309999987611,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": -6.41449560134788e-10,
+          "receive": 88.75900000202819,
+          "_blocked_queueing": 118.15099999876111
+        },
+        "serverIPAddress": "",
+        "_initiator": {
+          "type": "parser",
+          "url": "http://www.explorer.net/",
+          "lineNumber": 0
+        },
+        "_priority": "High",
+        "_resourceType": "other",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:43.812Z",
+        "time": 344.4770000005519,
+        "request": {
+          "method": "GET",
+          "url": "http://nebula.wsimg.com/5a1c87c1ab66f916a491f68d74cebb97?AccessKeyId=77D9B5A1BF661525AEFF&disposition=0&alloworigin=1",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "AccessKeyId",
+              "value": "77D9B5A1BF661525AEFF"
+            },
+            {
+              "name": "disposition",
+              "value": "0"
+            },
+            {
+              "name": "alloworigin",
+              "value": "1"
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Sat, 29 Jun 2019 11:38:44 GMT"
+            },
+            {
+              "name": "Content-Encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "x-cloud-object-key",
+              "value": "5a1c87c1ab66f916a491f68d74cebb97"
+            },
+            {
+              "name": "x-cloud-acl",
+              "value": "public-read"
+            },
+            {
+              "name": "x-cloud-bucket-name",
+              "value": "resources"
+            },
+            {
+              "name": "x-cloud-object-name",
+              "value": "0c9e1882-c98f-40a9-85a7-1b1609e3d5cb.png"
+            },
+            {
+              "name": "x-cloud-public-bucket",
+              "value": "[]"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Content-Length",
+              "value": "1328"
+            },
+            {
+              "name": "x-cloud-meta",
+              "value": ""
+            },
+            {
+              "name": "x-cloud-bucket-key",
+              "value": "f50419cf9a3a0436c1d88f64054ce15e"
+            },
+            {
+              "name": "Last-Modified",
+              "value": "Sat, 30 May 2015 15:45:46 GMT"
+            },
+            {
+              "name": "Server",
+              "value": "Apache"
+            },
+            {
+              "name": "ETag",
+              "value": "16034aba0be6c294828bd4169dbdfb4a"
+            },
+            {
+              "name": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "Content-Type",
+              "value": "image/png"
+            },
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "must-revalidate, max-age=31536000"
+            },
+            {
+              "name": "x-cloud-request-id",
+              "value": "GDN326EEC069534F517B0E00ACDB3FD8"
+            },
+            {
+              "name": "x-cloud-version",
+              "value": "5cab087f0d200ba16ad500bd42ff2490"
+            },
+            {
+              "name": "created-date",
+              "value": "Sat, 30 May 2015 15:45:46 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 1305,
+            "mimeType": "image/png"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 2108
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 176.76399999954623,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.0519999999999996,
+          "wait": 163.17999999924515,
+          "receive": 4.481000001760549,
+          "_blocked_queueing": 116.21899999954621
+        },
+        "serverIPAddress": "23.200.54.125",
+        "_initiator": {
+          "type": "parser",
+          "url": "http://www.explorer.net/",
+          "lineNumber": 0
+        },
+        "_priority": "Low",
+        "_resourceType": "image",
+        "connection": "39907",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:43.812Z",
+        "time": 245.35500000137952,
+        "request": {
+          "method": "GET",
+          "url": "http://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 307,
+          "statusText": "Internal Redirect",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Location",
+              "value": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js"
+            },
+            {
+              "name": "Non-Authoritative-Reason",
+              "value": "HSTS"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 0,
+            "mimeType": "x-unknown"
+          },
+          "redirectURL": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 0
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 160.62300000021176,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": -4.5227466216601897e-10,
+          "receive": 84.73200000116776,
+          "_blocked_queueing": 127.84300000021176
+        },
+        "serverIPAddress": "",
+        "_initiator": {
+          "type": "parser",
+          "url": "http://www.explorer.net/",
+          "lineNumber": 0
+        },
+        "_priority": "Medium",
+        "_resourceType": "other",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:44.050Z",
+        "time": 285.4319999987638,
+        "request": {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css?family=Fredericka+the+Great|Allura|Amatic+SC|Arizonia|Averia+Sans+Libre|Cabin+Sketch|Francois+One|Jacques+Francois+Shadow|Josefin+Slab|Kaushan+Script|Love+Ya+Like+A+Sister|Merriweather|Offside|Open+Sans|Open+Sans+Condensed|Oswald|Over+the+Rainbow|Pacifico|Romanesco|Sacramento|Seaweed+Script|Special+Elite",
+          "httpVersion": "http/2.0+quic/43",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "family",
+              "value": "Fredericka+the+Great|Allura|Amatic+SC|Arizonia|Averia+Sans+Libre|Cabin+Sketch|Francois+One|Jacques+Francois+Shadow|Josefin+Slab|Kaushan+Script|Love+Ya+Like+A+Sister|Merriweather|Offside|Open+Sans|Open+Sans+Condensed|Oswald|Over+the+Rainbow|Pacifico|Romanesco|Sacramento|Seaweed+Script|Special+Elite"
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "http/2.0+quic/43",
+          "headers": [
+            {
+              "name": "strict-transport-security",
+              "value": "max-age=31536000"
+            },
+            {
+              "name": "content-encoding",
+              "value": "br"
+            },
+            {
+              "name": "last-modified",
+              "value": "Sat, 29 Jun 2019 11:38:44 GMT"
+            },
+            {
+              "name": "server",
+              "value": "ESF"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "date",
+              "value": "Sat, 29 Jun 2019 11:38:44 GMT"
+            },
+            {
+              "name": "x-frame-options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "name": "content-type",
+              "value": "text/css; charset=utf-8"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "alt-svc",
+              "value": "quic=\":443\"; ma=2592000; v=\"46,44,43,39\""
+            },
+            {
+              "name": "cache-control",
+              "value": "private, max-age=86400, stale-while-revalidate=604800"
+            },
+            {
+              "name": "timing-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "link",
+              "value": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin"
+            },
+            {
+              "name": "x-xss-protection",
+              "value": "0"
+            },
+            {
+              "name": "expires",
+              "value": "Sat, 29 Jun 2019 11:38:44 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 19524,
+            "mimeType": "text/css"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 1855
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 66.22900000002119,
+          "dns": 0,
+          "ssl": -1,
+          "connect": 0,
+          "send": 64.832,
+          "wait": 133.6329999994872,
+          "receive": 20.737999999255408,
+          "_blocked_queueing": 66.22900000002119
+        },
+        "serverIPAddress": "[2607:f8b0:400a:800::200a]",
+        "_initiator": {
+          "type": "parser",
+          "url": "http://www.explorer.net/",
+          "lineNumber": 0
+        },
+        "_priority": "VeryHigh",
+        "_resourceType": "stylesheet",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:44.056Z",
+        "time": 242.38700000023528,
+        "request": {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css?family=Open+Sans",
+          "httpVersion": "http/2.0+quic/43",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "family",
+              "value": "Open+Sans"
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "http/2.0+quic/43",
+          "headers": [
+            {
+              "name": "strict-transport-security",
+              "value": "max-age=31536000"
+            },
+            {
+              "name": "content-encoding",
+              "value": "br"
+            },
+            {
+              "name": "last-modified",
+              "value": "Sat, 29 Jun 2019 11:38:44 GMT"
+            },
+            {
+              "name": "server",
+              "value": "ESF"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "date",
+              "value": "Sat, 29 Jun 2019 11:38:44 GMT"
+            },
+            {
+              "name": "x-frame-options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "name": "content-type",
+              "value": "text/css; charset=utf-8"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "alt-svc",
+              "value": "quic=\":443\"; ma=2592000; v=\"46,44,43,39\""
+            },
+            {
+              "name": "cache-control",
+              "value": "private, max-age=86400, stale-while-revalidate=604800"
+            },
+            {
+              "name": "timing-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "link",
+              "value": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin"
+            },
+            {
+              "name": "x-xss-protection",
+              "value": "0"
+            },
+            {
+              "name": "expires",
+              "value": "Sat, 29 Jun 2019 11:38:44 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 2382,
+            "mimeType": "text/css"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 780
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 124.87200000050315,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.12899999999999778,
+          "wait": 23.375000000504777,
+          "receive": 94.01099999922735,
+          "_blocked_queueing": 83.05900000050315
+        },
+        "serverIPAddress": "[2607:f8b0:400a:800::200a]",
+        "_initiator": {
+          "type": "parser",
+          "url": "http://www.explorer.net/",
+          "lineNumber": 0
+        },
+        "_priority": "VeryHigh",
+        "_resourceType": "stylesheet",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:44.057Z",
+        "time": 172.09899999943445,
+        "request": {
+          "method": "GET",
+          "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "appid",
+              "value": "O3BkA5J1"
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "date",
+              "value": "Sat, 29 Jun 2019 11:38:44 GMT"
+            },
+            {
+              "name": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "last-modified",
+              "value": "Thu, 14 Jan 2016 20:03:53 GMT"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "etag",
+              "value": "\"6e4534b164fd11:0\""
+            },
+            {
+              "name": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "content-type",
+              "value": "application/x-javascript"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "cache-control",
+              "value": "max-age=31536000"
+            },
+            {
+              "name": "accept-ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "timing-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "content-length",
+              "value": "15038"
+            },
+            {
+              "name": "expires",
+              "value": "Sun, 28 Jun 2020 11:38:44 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 41029,
+            "mimeType": "application/x-javascript"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 15279
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 141.2379999989817,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.6300000000000026,
+          "wait": 23.230000000507104,
+          "receive": 7.000999999945634,
+          "_blocked_queueing": 82.71599999898172
+        },
+        "serverIPAddress": "104.109.100.222",
+        "_initiator": {
+          "type": "parser",
+          "url": "http://www.explorer.net/",
+          "lineNumber": 0
+        },
+        "_priority": "High",
+        "_resourceType": "script",
+        "connection": "39897",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:44.058Z",
+        "time": 180.20499999875028,
+        "request": {
+          "method": "GET",
+          "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "date",
+              "value": "Sat, 29 Jun 2019 11:38:44 GMT"
+            },
+            {
+              "name": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "last-modified",
+              "value": "Tue, 24 Nov 2015 21:28:14 GMT"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "etag",
+              "value": "\"02b9e6ff26d11:0\""
+            },
+            {
+              "name": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "content-type",
+              "value": "application/x-javascript"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "cache-control",
+              "value": "max-age=31536000"
+            },
+            {
+              "name": "accept-ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "timing-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "content-length",
+              "value": "2157"
+            },
+            {
+              "name": "expires",
+              "value": "Sun, 28 Jun 2020 11:38:44 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 5969,
+            "mimeType": "application/x-javascript"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 2369
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 140.38099999919905,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.5480000000000018,
+          "wait": 33.65499999930465,
+          "receive": 5.621000000246568,
+          "_blocked_queueing": 82.76499999919906
+        },
+        "serverIPAddress": "104.109.100.222",
+        "_initiator": {
+          "type": "parser",
+          "url": "http://www.explorer.net/",
+          "lineNumber": 0
+        },
+        "_priority": "Medium",
+        "_resourceType": "script",
+        "connection": "39897",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:44.400Z",
+        "time": 262.38200000079814,
+        "request": {
+          "method": "GET",
+          "url": "https://img1.wsimg.com/wst/v7/WSB7_J_20180314_1640_WSB-17223_1320/v2/libs/jquery/jq.js",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "date",
+              "value": "Sat, 29 Jun 2019 11:38:44 GMT"
+            },
+            {
+              "name": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "last-modified",
+              "value": "Wed, 14 Mar 2018 23:55:46 GMT"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "etag",
+              "value": "\"5867cef8efbbd31:0\""
+            },
+            {
+              "name": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "content-type",
+              "value": "application/x-javascript"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "cache-control",
+              "value": "max-age=31536000"
+            },
+            {
+              "name": "accept-ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "timing-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "content-length",
+              "value": "33456"
+            },
+            {
+              "name": "expires",
+              "value": "Sun, 28 Jun 2020 11:38:44 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 92976,
+            "mimeType": "application/x-javascript"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 33743
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 122.23000000093424,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.35199999999998965,
+          "wait": 27.24199999914633,
+          "receive": 112.55800000071758,
+          "_blocked_queueing": 30.925000000934233
+        },
+        "serverIPAddress": "104.109.100.222",
+        "_initiator": {
+          "type": "script",
+          "stack": {
+            "callFrames": [
+              {
+                "functionName": "loadScript",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 7369
+              },
+              {
+                "functionName": "e",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 11822
+              },
+              {
+                "functionName": "f",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 11856
+              },
+              {
+                "functionName": "load",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 12549
+              },
+              {
+                "functionName": "",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 9548
+              },
+              {
+                "functionName": "m",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 3333
+              },
+              {
+                "functionName": "fetchDep",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 9316
+              },
+              {
+                "functionName": "c",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8291
+              },
+              {
+                "functionName": "getDeps",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8655
+              },
+              {
+                "functionName": "i",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 4843
+              },
+              {
+                "functionName": "load",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 16222
+              },
+              {
+                "functionName": "",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 9548
+              },
+              {
+                "functionName": "m",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 3333
+              },
+              {
+                "functionName": "fetchDep",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 9316
+              },
+              {
+                "functionName": "c",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8291
+              },
+              {
+                "functionName": "getDeps",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8655
+              },
+              {
+                "functionName": "",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8131
+              },
+              {
+                "functionName": "m",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 3333
+              },
+              {
+                "functionName": "defineResource",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8059
+              },
+              {
+                "functionName": "p",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 4060
+              },
+              {
+                "functionName": "a.define",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 10004
+              },
+              {
+                "functionName": "",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 23965
+              }
+            ]
+          }
+        },
+        "_priority": "Low",
+        "_resourceType": "script",
+        "connection": "39897",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:44.436Z",
+        "time": 214.34599999884085,
+        "request": {
+          "method": "GET",
+          "url": "https://img1.wsimg.com/wst/v7/WSB7_J_20180314_1640_WSB-17223_1320/v2/common/cookiemanager/cookiemanager.js",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "date",
+              "value": "Sat, 29 Jun 2019 11:38:44 GMT"
+            },
+            {
+              "name": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "last-modified",
+              "value": "Wed, 14 Mar 2018 23:49:58 GMT"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "etag",
+              "value": "\"3eb3f328efbbd31:0\""
+            },
+            {
+              "name": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "content-type",
+              "value": "application/x-javascript"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "cache-control",
+              "value": "max-age=31536000"
+            },
+            {
+              "name": "accept-ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "timing-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "content-length",
+              "value": "355"
+            },
+            {
+              "name": "expires",
+              "value": "Sun, 28 Jun 2020 11:38:44 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 552,
+            "mimeType": "application/x-javascript"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 569
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 85.96399999903002,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.28999999999999915,
+          "wait": 123.85099999926332,
+          "receive": 4.241000000547501,
+          "_blocked_queueing": 34.47099999903003
+        },
+        "serverIPAddress": "104.109.100.222",
+        "_initiator": {
+          "type": "script",
+          "stack": {
+            "callFrames": [
+              {
+                "functionName": "loadScript",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 7369
+              },
+              {
+                "functionName": "fetchResDef",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8730
+              },
+              {
+                "functionName": "fetchDep",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 9267
+              },
+              {
+                "functionName": "c",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8291
+              },
+              {
+                "functionName": "getDeps",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8655
+              },
+              {
+                "functionName": "",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 3689
+              },
+              {
+                "functionName": "m",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 3333
+              },
+              {
+                "functionName": "a",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 3672
+              },
+              {
+                "functionName": "o",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 3805
+              },
+              {
+                "functionName": "",
+                "scriptId": "21",
+                "url": "http://www.explorer.net/",
+                "lineNumber": 0,
+                "columnNumber": 4920
+              }
+            ]
+          }
+        },
+        "_priority": "Low",
+        "_resourceType": "script",
+        "connection": "39897",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:44.439Z",
+        "time": 246.30099999922095,
+        "request": {
+          "method": "GET",
+          "url": "https://img1.wsimg.com/wst/v7/WSB7_J_20180314_1640_WSB-17223_1320/v2/designer/iebackground/iebackground.js",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "date",
+              "value": "Sat, 29 Jun 2019 11:38:44 GMT"
+            },
+            {
+              "name": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "last-modified",
+              "value": "Wed, 14 Mar 2018 23:50:34 GMT"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "etag",
+              "value": "\"3663d63eefbbd31:0\""
+            },
+            {
+              "name": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "content-type",
+              "value": "application/x-javascript"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "cache-control",
+              "value": "max-age=31536000"
+            },
+            {
+              "name": "accept-ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "timing-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "content-length",
+              "value": "603"
+            },
+            {
+              "name": "expires",
+              "value": "Sun, 28 Jun 2020 11:38:44 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 1190,
+            "mimeType": "application/x-javascript"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 817
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 219.80199999969952,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 3.855000000000018,
+          "wait": 16.098999999333984,
+          "receive": 6.545000000187429,
+          "_blocked_queueing": 76.66799999969953
+        },
+        "serverIPAddress": "104.109.100.222",
+        "_initiator": {
+          "type": "script",
+          "stack": {
+            "callFrames": [
+              {
+                "functionName": "loadScript",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 7369
+              },
+              {
+                "functionName": "fetchResDef",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8730
+              },
+              {
+                "functionName": "fetchDep",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 9267
+              },
+              {
+                "functionName": "c",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8291
+              },
+              {
+                "functionName": "getDeps",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8655
+              },
+              {
+                "functionName": "",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 3689
+              },
+              {
+                "functionName": "m",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 3333
+              },
+              {
+                "functionName": "a",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 3672
+              },
+              {
+                "functionName": "o",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 3805
+              },
+              {
+                "functionName": "",
+                "scriptId": "21",
+                "url": "http://www.explorer.net/",
+                "lineNumber": 0,
+                "columnNumber": 4920
+              }
+            ]
+          }
+        },
+        "_priority": "Low",
+        "_resourceType": "script",
+        "connection": "39897",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:44.677Z",
+        "time": 38.39700000025914,
+        "request": {
+          "method": "GET",
+          "url": "https://fonts.gstatic.com/s/opensans/v16/mem8YaGs126MiZpBA-UFVZ0b.woff2",
+          "httpVersion": "http/2.0+quic/43",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "https://fonts.googleapis.com/css?family=Fredericka+the+Great|Allura|Amatic+SC|Arizonia|Averia+Sans+Libre|Cabin+Sketch|Francois+One|Jacques+Francois+Shadow|Josefin+Slab|Kaushan+Script|Love+Ya+Like+A+Sister|Merriweather|Offside|Open+Sans|Open+Sans+Condensed|Oswald|Over+the+Rainbow|Pacifico|Romanesco|Sacramento|Seaweed+Script|Special+Elite"
+            },
+            {
+              "name": "Origin",
+              "value": "http://www.explorer.net"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "http/2.0+quic/43",
+          "headers": [
+            {
+              "name": "date",
+              "value": "Wed, 19 Jun 2019 20:27:11 GMT"
+            },
+            {
+              "name": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "name": "last-modified",
+              "value": "Mon, 25 Mar 2019 20:11:29 GMT"
+            },
+            {
+              "name": "server",
+              "value": "sffe"
+            },
+            {
+              "name": "age",
+              "value": "832293"
+            },
+            {
+              "name": "content-type",
+              "value": "font/woff2"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "alt-svc",
+              "value": "quic=\":443\"; ma=2592000; v=\"46,44,43,39\""
+            },
+            {
+              "name": "cache-control",
+              "value": "public, max-age=31536000"
+            },
+            {
+              "name": "accept-ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "timing-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "content-length",
+              "value": "14380"
+            },
+            {
+              "name": "x-xss-protection",
+              "value": "0"
+            },
+            {
+              "name": "expires",
+              "value": "Thu, 18 Jun 2020 20:27:11 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 14380,
+            "mimeType": "font/woff2"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 14618
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 10.813999999299995,
+          "dns": 0,
+          "ssl": -1,
+          "connect": 0,
+          "send": 6.658,
+          "wait": 14.59199999978172,
+          "receive": 6.333000001177425,
+          "_blocked_queueing": 10.813999999299995
+        },
+        "serverIPAddress": "[2607:f8b0:400a:803::2003]",
+        "_initiator": {
+          "type": "parser",
+          "url": "http://www.explorer.net/",
+          "lineNumber": 0
+        },
+        "_priority": "VeryHigh",
+        "_resourceType": "font",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:45.002Z",
+        "time": 35.24400000060268,
+        "request": {
+          "method": "GET",
+          "url": "https://img1.wsimg.com/wst/v7/WSB7_J_20180314_1640_WSB-17223_1320/v2/common/util/util.window.js",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "http/2.0",
+          "headers": [
+            {
+              "name": "date",
+              "value": "Sat, 29 Jun 2019 11:38:45 GMT"
+            },
+            {
+              "name": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "last-modified",
+              "value": "Wed, 14 Mar 2018 23:50:02 GMT"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "etag",
+              "value": "\"3e7c3a2befbbd31:0\""
+            },
+            {
+              "name": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "content-type",
+              "value": "application/x-javascript"
+            },
+            {
+              "name": "status",
+              "value": "200"
+            },
+            {
+              "name": "cache-control",
+              "value": "max-age=31536000"
+            },
+            {
+              "name": "accept-ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "timing-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "content-length",
+              "value": "115"
+            },
+            {
+              "name": "expires",
+              "value": "Sun, 28 Jun 2020 11:38:45 GMT"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 111,
+            "mimeType": "application/x-javascript"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 328
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 18.506000001430394,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.2549999999999999,
+          "wait": 15.451000000868342,
+          "receive": 1.0319999983039452,
+          "_blocked_queueing": 15.914000001430395
+        },
+        "serverIPAddress": "104.109.100.222",
+        "_initiator": {
+          "type": "script",
+          "stack": {
+            "callFrames": [
+              {
+                "functionName": "loadScript",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 7369
+              },
+              {
+                "functionName": "fetchResDef",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8730
+              },
+              {
+                "functionName": "fetchDep",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 9267
+              },
+              {
+                "functionName": "c",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8291
+              },
+              {
+                "functionName": "getDeps",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8655
+              },
+              {
+                "functionName": "",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8131
+              },
+              {
+                "functionName": "m",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 3333
+              },
+              {
+                "functionName": "defineResource",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8059
+              },
+              {
+                "functionName": "",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 8884
+              },
+              {
+                "functionName": "e",
+                "scriptId": "19",
+                "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                "lineNumber": 1,
+                "columnNumber": 7176
+              }
+            ],
+            "parent": {
+              "description": "load",
+              "callFrames": [
+                {
+                  "functionName": "loadScript",
+                  "scriptId": "19",
+                  "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                  "lineNumber": 1,
+                  "columnNumber": 7280
+                },
+                {
+                  "functionName": "fetchResDef",
+                  "scriptId": "19",
+                  "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                  "lineNumber": 1,
+                  "columnNumber": 8730
+                },
+                {
+                  "functionName": "fetchDep",
+                  "scriptId": "19",
+                  "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                  "lineNumber": 1,
+                  "columnNumber": 9267
+                },
+                {
+                  "functionName": "c",
+                  "scriptId": "19",
+                  "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                  "lineNumber": 1,
+                  "columnNumber": 8291
+                },
+                {
+                  "functionName": "getDeps",
+                  "scriptId": "19",
+                  "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                  "lineNumber": 1,
+                  "columnNumber": 8655
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "19",
+                  "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                  "lineNumber": 1,
+                  "columnNumber": 3689
+                },
+                {
+                  "functionName": "m",
+                  "scriptId": "19",
+                  "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                  "lineNumber": 1,
+                  "columnNumber": 3333
+                },
+                {
+                  "functionName": "a",
+                  "scriptId": "19",
+                  "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                  "lineNumber": 1,
+                  "columnNumber": 3672
+                },
+                {
+                  "functionName": "o",
+                  "scriptId": "19",
+                  "url": "https://img1.wsimg.com/starfield/duel/v2.5.8/duel.js?appid=O3BkA5J1",
+                  "lineNumber": 1,
+                  "columnNumber": 3805
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "21",
+                  "url": "http://www.explorer.net/",
+                  "lineNumber": 0,
+                  "columnNumber": 4920
+                }
+              ]
+            }
+          }
+        },
+        "_priority": "Low",
+        "_resourceType": "script",
+        "connection": "39897",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:45.103Z",
+        "time": 379.7109999997033,
+        "request": {
+          "method": "GET",
+          "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Sat, 29 Jun 2019 11:38:46 GMT"
+            },
+            {
+              "name": "Content-Encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "Last-Modified",
+              "value": "Tue, 25 Jun 2019 13:21:41 GMT"
+            },
+            {
+              "name": "Server",
+              "value": "AmazonS3"
+            },
+            {
+              "name": "x-amz-request-id",
+              "value": "D7E8C7494C98DA16"
+            },
+            {
+              "name": "ETag",
+              "value": "\"3b163401bfcbb2bdbd6412f0c535b673\""
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/javascript"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "max-age = 10800"
+            },
+            {
+              "name": "Accept-Ranges",
+              "value": "bytes"
+            },
+            {
+              "name": "Content-Length",
+              "value": "16493"
+            },
+            {
+              "name": "x-amz-id-2",
+              "value": "LiBIHitejEcX5+594bqGkiwzs8jCdUpOabOcuAudZsWTJ2NAIxKlENEgqsyJKvtjtCZcW9sDWlU="
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 47610,
+            "mimeType": "application/javascript"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 16920
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 28.71399999984156,
+          "dns": 28.864,
+          "ssl": -1,
+          "connect": 121.181,
+          "send": 0.2580000000000098,
+          "wait": 107.68999999956984,
+          "receive": 93.00400000029185,
+          "_blocked_queueing": 8.257999999841559
+        },
+        "serverIPAddress": "52.216.133.133",
+        "_initiator": {
+          "type": "script",
+          "stack": {
+            "callFrames": [
+              {
+                "functionName": "",
+                "scriptId": "28",
+                "url": "",
+                "lineNumber": 0,
+                "columnNumber": 159
+              },
+              {
+                "functionName": "",
+                "scriptId": "28",
+                "url": "",
+                "lineNumber": 0,
+                "columnNumber": 237
+              }
+            ]
+          }
+        },
+        "_priority": "Low",
+        "_resourceType": "script",
+        "connection": "40047",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:45.603Z",
+        "time": 333.70999999872276,
+        "request": {
+          "method": "GET",
+          "url": "http://makefailed.com/metric/?mid=&wid=51824&sid=&tid=8388&rid=LAUNCHED&t=1561808325574",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "mid",
+              "value": ""
+            },
+            {
+              "name": "wid",
+              "value": "51824"
+            },
+            {
+              "name": "sid",
+              "value": ""
+            },
+            {
+              "name": "tid",
+              "value": "8388"
+            },
+            {
+              "name": "rid",
+              "value": "LAUNCHED"
+            },
+            {
+              "name": "t",
+              "value": "1561808325574"
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Sat, 29 Jun 2019 11:38:46 GMT"
+            },
+            {
+              "name": "Last-Modified",
+              "value": "Mon, 28 Sep 1970 06:00:00 GMT"
+            },
+            {
+              "name": "Server",
+              "value": "cloudflare"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "CF-RAY",
+              "value": "4ee79db53d31c9a9-SEA"
+            },
+            {
+              "name": "Content-Length",
+              "value": "43"
+            },
+            {
+              "name": "Content-Type",
+              "value": "image/gif"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 43,
+            "mimeType": "image/gif"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 409
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 21.92300000021921,
+          "dns": 64.247,
+          "ssl": -1,
+          "connect": 79.075,
+          "send": 0.2810000000000059,
+          "wait": 165.58199999984342,
+          "receive": 2.601999998660176,
+          "_blocked_queueing": 19.95100000021921
+        },
+        "serverIPAddress": "[2606:4700:30::681b:84d9]",
+        "_initiator": {
+          "type": "script",
+          "stack": {
+            "callFrames": [],
+            "parent": {
+              "description": "Image",
+              "callFrames": [
+                {
+                  "functionName": "",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 386
+                },
+                {
+                  "functionName": "b",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 591
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 46408
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 47583
+                }
+              ]
+            }
+          }
+        },
+        "_priority": "Low",
+        "_resourceType": "image",
+        "connection": "40074",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:45.604Z",
+        "time": 336.82200000152807,
+        "request": {
+          "method": "GET",
+          "url": "http://makefailed.com/metric/?mid=&wid=51824&sid=&tid=8388&rid=LOADED&custom1=www.explorer.net&custom2=%2F&t=1561808325595",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "mid",
+              "value": ""
+            },
+            {
+              "name": "wid",
+              "value": "51824"
+            },
+            {
+              "name": "sid",
+              "value": ""
+            },
+            {
+              "name": "tid",
+              "value": "8388"
+            },
+            {
+              "name": "rid",
+              "value": "LOADED"
+            },
+            {
+              "name": "custom1",
+              "value": "www.explorer.net"
+            },
+            {
+              "name": "custom2",
+              "value": "%2F"
+            },
+            {
+              "name": "t",
+              "value": "1561808325595"
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Sat, 29 Jun 2019 11:38:46 GMT"
+            },
+            {
+              "name": "Last-Modified",
+              "value": "Mon, 28 Sep 1970 06:00:00 GMT"
+            },
+            {
+              "name": "Server",
+              "value": "cloudflare"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "CF-RAY",
+              "value": "4ee79db53c2abb46-SEA"
+            },
+            {
+              "name": "Content-Length",
+              "value": "43"
+            },
+            {
+              "name": "Content-Type",
+              "value": "image/gif"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 43,
+            "mimeType": "image/gif"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 409
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 43.131000001608044,
+          "dns": 44.875,
+          "ssl": -1,
+          "connect": 64.124,
+          "send": 0.3539999999999992,
+          "wait": 181.6569999999814,
+          "receive": 2.680999999938649,
+          "_blocked_queueing": 19.536000001608045
+        },
+        "serverIPAddress": "[2606:4700:30::681b:84d9]",
+        "_initiator": {
+          "type": "script",
+          "stack": {
+            "callFrames": [],
+            "parent": {
+              "description": "Image",
+              "callFrames": [
+                {
+                  "functionName": "loadedCallback",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 10252
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 33990
+                },
+                {
+                  "functionName": "ready",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 1448
+                },
+                {
+                  "functionName": "b",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 31767
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 46408
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 47583
+                }
+              ]
+            }
+          }
+        },
+        "_priority": "Low",
+        "_resourceType": "image",
+        "connection": "40075",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:45.607Z",
+        "time": 329.38800000042164,
+        "request": {
+          "method": "GET",
+          "url": "http://makefailed.com/metric/?mid=&wid=51824&sid=&tid=8388&rid=FINISHED&custom1=www.explorer.net&t=1561808325603",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "mid",
+              "value": ""
+            },
+            {
+              "name": "wid",
+              "value": "51824"
+            },
+            {
+              "name": "sid",
+              "value": ""
+            },
+            {
+              "name": "tid",
+              "value": "8388"
+            },
+            {
+              "name": "rid",
+              "value": "FINISHED"
+            },
+            {
+              "name": "custom1",
+              "value": "www.explorer.net"
+            },
+            {
+              "name": "t",
+              "value": "1561808325603"
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Sat, 29 Jun 2019 11:38:46 GMT"
+            },
+            {
+              "name": "Last-Modified",
+              "value": "Mon, 28 Sep 1970 06:00:00 GMT"
+            },
+            {
+              "name": "Server",
+              "value": "cloudflare"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "CF-RAY",
+              "value": "4ee79db55cd7c989-SEA"
+            },
+            {
+              "name": "Content-Length",
+              "value": "43"
+            },
+            {
+              "name": "Content-Type",
+              "value": "image/gif"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 43,
+            "mimeType": "image/gif"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 409
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 40.4760000009326,
+          "dns": 46.729,
+          "ssl": -1,
+          "connect": 70.061,
+          "send": 0.24799999999999045,
+          "wait": 169.66400000074867,
+          "receive": 2.209999998740386,
+          "_blocked_queueing": 17.417000000932603
+        },
+        "serverIPAddress": "[2606:4700:30::681b:84d9]",
+        "_initiator": {
+          "type": "script",
+          "stack": {
+            "callFrames": [],
+            "parent": {
+              "description": "Image",
+              "callFrames": [
+                {
+                  "functionName": "loadedCallback",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 10252
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 46355
+                },
+                {
+                  "functionName": "ready",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 1448
+                },
+                {
+                  "functionName": "b",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 31767
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 46408
+                },
+                {
+                  "functionName": "",
+                  "scriptId": "37",
+                  "url": "http://s3.amazonaws.com/jsfile/20c42bf135149561a8.js",
+                  "lineNumber": 0,
+                  "columnNumber": 47583
+                }
+              ]
+            }
+          }
+        },
+        "_priority": "Low",
+        "_resourceType": "image",
+        "connection": "40076",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:45.961Z",
+        "time": 7.74700000147277,
+        "request": {
+          "method": "GET",
+          "url": "http://img.secureserver.net/t/1/tl/event?cts=1561808324864&ap=WSBv7&ds=1000&tce=1561808323585&tcs=1561808323585&tdc=1561808325899&tdclee=1561808324875&tdcles=1561808324871&tdi=1561808324869&tdl=1561808323733&tdle=1561808323585&tdls=1561808323585&tfs=1561808323585&tns=1561808323284&trqs=1561808323602&tre=1561808323768&trps=1561808323670&tles=1561808325899&tlee=1561808325922&dh=www.explorer.net&dp=%2F&ua=Mozilla%2F5.0%20(X11%3B%20CrOS%20x86_64%2012105.75.0)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F75.0.3770.102%20Safari%2F537.36&feedtype=perf&z=1851335363",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "cts",
+              "value": "1561808324864"
+            },
+            {
+              "name": "ap",
+              "value": "WSBv7"
+            },
+            {
+              "name": "ds",
+              "value": "1000"
+            },
+            {
+              "name": "tce",
+              "value": "1561808323585"
+            },
+            {
+              "name": "tcs",
+              "value": "1561808323585"
+            },
+            {
+              "name": "tdc",
+              "value": "1561808325899"
+            },
+            {
+              "name": "tdclee",
+              "value": "1561808324875"
+            },
+            {
+              "name": "tdcles",
+              "value": "1561808324871"
+            },
+            {
+              "name": "tdi",
+              "value": "1561808324869"
+            },
+            {
+              "name": "tdl",
+              "value": "1561808323733"
+            },
+            {
+              "name": "tdle",
+              "value": "1561808323585"
+            },
+            {
+              "name": "tdls",
+              "value": "1561808323585"
+            },
+            {
+              "name": "tfs",
+              "value": "1561808323585"
+            },
+            {
+              "name": "tns",
+              "value": "1561808323284"
+            },
+            {
+              "name": "trqs",
+              "value": "1561808323602"
+            },
+            {
+              "name": "tre",
+              "value": "1561808323768"
+            },
+            {
+              "name": "trps",
+              "value": "1561808323670"
+            },
+            {
+              "name": "tles",
+              "value": "1561808325899"
+            },
+            {
+              "name": "tlee",
+              "value": "1561808325922"
+            },
+            {
+              "name": "dh",
+              "value": "www.explorer.net"
+            },
+            {
+              "name": "dp",
+              "value": "%2F"
+            },
+            {
+              "name": "ua",
+              "value": "Mozilla%2F5.0%20(X11%3B%20CrOS%20x86_64%2012105.75.0)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F75.0.3770.102%20Safari%2F537.36"
+            },
+            {
+              "name": "feedtype",
+              "value": "perf"
+            },
+            {
+              "name": "z",
+              "value": "1851335363"
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 307,
+          "statusText": "Internal Redirect",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Location",
+              "value": "https://img.secureserver.net/t/1/tl/event?cts=1561808324864&ap=WSBv7&ds=1000&tce=1561808323585&tcs=1561808323585&tdc=1561808325899&tdclee=1561808324875&tdcles=1561808324871&tdi=1561808324869&tdl=1561808323733&tdle=1561808323585&tdls=1561808323585&tfs=1561808323585&tns=1561808323284&trqs=1561808323602&tre=1561808323768&trps=1561808323670&tles=1561808325899&tlee=1561808325922&dh=www.explorer.net&dp=%2F&ua=Mozilla%2F5.0%20(X11%3B%20CrOS%20x86_64%2012105.75.0)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F75.0.3770.102%20Safari%2F537.36&feedtype=perf&z=1851335363"
+            },
+            {
+              "name": "Non-Authoritative-Reason",
+              "value": "HSTS"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 0,
+            "mimeType": "x-unknown"
+          },
+          "redirectURL": "https://img.secureserver.net/t/1/tl/event?cts=1561808324864&ap=WSBv7&ds=1000&tce=1561808323585&tcs=1561808323585&tdc=1561808325899&tdclee=1561808324875&tdcles=1561808324871&tdi=1561808324869&tdl=1561808323733&tdle=1561808323585&tdls=1561808323585&tfs=1561808323585&tns=1561808323284&trqs=1561808323602&tre=1561808323768&trps=1561808323670&tles=1561808325899&tlee=1561808325922&dh=www.explorer.net&dp=%2F&ua=Mozilla%2F5.0%20(X11%3B%20CrOS%20x86_64%2012105.75.0)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F75.0.3770.102%20Safari%2F537.36&feedtype=perf&z=1851335363",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 0
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 4.443000000759726,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": 8.693896158540326e-10,
+          "receive": 3.3039999998436542,
+          "_blocked_queueing": 4.247000000759726
+        },
+        "serverIPAddress": "",
+        "_initiator": {
+          "type": "script",
+          "stack": {
+            "callFrames": [],
+            "parent": {
+              "description": "Image",
+              "callFrames": [
+                {
+                  "functionName": "d",
+                  "scriptId": "23",
+                  "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                  "lineNumber": 0,
+                  "columnNumber": 3389
+                },
+                {
+                  "functionName": "b",
+                  "scriptId": "23",
+                  "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                  "lineNumber": 0,
+                  "columnNumber": 3195
+                },
+                {
+                  "functionName": "c",
+                  "scriptId": "23",
+                  "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                  "lineNumber": 0,
+                  "columnNumber": 4931
+                },
+                {
+                  "functionName": "b",
+                  "scriptId": "23",
+                  "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                  "lineNumber": 0,
+                  "columnNumber": 4879
+                }
+              ],
+              "parent": {
+                "description": "setTimeout",
+                "callFrames": [
+                  {
+                    "functionName": "",
+                    "scriptId": "23",
+                    "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                    "lineNumber": 0,
+                    "columnNumber": 5619
+                  }
+                ],
+                "parent": {
+                  "description": "load",
+                  "callFrames": [
+                    {
+                      "functionName": "",
+                      "scriptId": "23",
+                      "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                      "lineNumber": 0,
+                      "columnNumber": 5584
+                    },
+                    {
+                      "functionName": "",
+                      "scriptId": "23",
+                      "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                      "lineNumber": 0,
+                      "columnNumber": 5902
+                    },
+                    {
+                      "functionName": "",
+                      "scriptId": "23",
+                      "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                      "lineNumber": 0,
+                      "columnNumber": 5938
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "_priority": "Low",
+        "_resourceType": "other",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:45.968Z",
+        "time": 133.94099999966576,
+        "request": {
+          "method": "GET",
+          "url": "http://www.explorer.net/favicon.ico",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 404,
+          "statusText": "Not Found",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Date",
+              "value": "Sat, 29 Jun 2019 11:38:46 GMT"
+            },
+            {
+              "name": "Server",
+              "value": "DPS/1.6.8"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "Content-Length",
+              "value": "964"
+            },
+            {
+              "name": "Vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "X-SiteId",
+              "value": "1000"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/html;charset=utf-8"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 964,
+            "mimeType": "text/html"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 1207
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 12.265000000787783,
+          "dns": 0.028000000000000025,
+          "ssl": -1,
+          "connect": 57.145,
+          "send": 0.7190000000000012,
+          "wait": 58.81900000061316,
+          "receive": 4.96499999826483,
+          "_blocked_queueing": 9.099000000787782
+        },
+        "serverIPAddress": "72.167.191.69",
+        "_initiator": {
+          "type": "other"
+        },
+        "_priority": "High",
+        "_resourceType": "other",
+        "connection": "40092",
+        "pageref": "page_1"
+      },
+      {
+        "startedDateTime": "2019-06-29T11:38:45.969Z",
+        "time": 165.6259999986184,
+        "request": {
+          "method": "GET",
+          "url": "https://img.secureserver.net/t/1/tl/event?cts=1561808324864&ap=WSBv7&ds=1000&tce=1561808323585&tcs=1561808323585&tdc=1561808325899&tdclee=1561808324875&tdcles=1561808324871&tdi=1561808324869&tdl=1561808323733&tdle=1561808323585&tdls=1561808323585&tfs=1561808323585&tns=1561808323284&trqs=1561808323602&tre=1561808323768&trps=1561808323670&tles=1561808325899&tlee=1561808325922&dh=www.explorer.net&dp=%2F&ua=Mozilla%2F5.0%20(X11%3B%20CrOS%20x86_64%2012105.75.0)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F75.0.3770.102%20Safari%2F537.36&feedtype=perf&z=1851335363",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Referer",
+              "value": "http://www.explorer.net/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (X11; CrOS x86_64 12105.75.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.102 Safari/537.36"
+            },
+            {
+              "name": "DNT",
+              "value": "1"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "cts",
+              "value": "1561808324864"
+            },
+            {
+              "name": "ap",
+              "value": "WSBv7"
+            },
+            {
+              "name": "ds",
+              "value": "1000"
+            },
+            {
+              "name": "tce",
+              "value": "1561808323585"
+            },
+            {
+              "name": "tcs",
+              "value": "1561808323585"
+            },
+            {
+              "name": "tdc",
+              "value": "1561808325899"
+            },
+            {
+              "name": "tdclee",
+              "value": "1561808324875"
+            },
+            {
+              "name": "tdcles",
+              "value": "1561808324871"
+            },
+            {
+              "name": "tdi",
+              "value": "1561808324869"
+            },
+            {
+              "name": "tdl",
+              "value": "1561808323733"
+            },
+            {
+              "name": "tdle",
+              "value": "1561808323585"
+            },
+            {
+              "name": "tdls",
+              "value": "1561808323585"
+            },
+            {
+              "name": "tfs",
+              "value": "1561808323585"
+            },
+            {
+              "name": "tns",
+              "value": "1561808323284"
+            },
+            {
+              "name": "trqs",
+              "value": "1561808323602"
+            },
+            {
+              "name": "tre",
+              "value": "1561808323768"
+            },
+            {
+              "name": "trps",
+              "value": "1561808323670"
+            },
+            {
+              "name": "tles",
+              "value": "1561808325899"
+            },
+            {
+              "name": "tlee",
+              "value": "1561808325922"
+            },
+            {
+              "name": "dh",
+              "value": "www.explorer.net"
+            },
+            {
+              "name": "dp",
+              "value": "%2F"
+            },
+            {
+              "name": "ua",
+              "value": "Mozilla%2F5.0%20(X11%3B%20CrOS%20x86_64%2012105.75.0)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F75.0.3770.102%20Safari%2F537.36"
+            },
+            {
+              "name": "feedtype",
+              "value": "perf"
+            },
+            {
+              "name": "z",
+              "value": "1851335363"
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "OK",
+          "httpVersion": "http/1.1",
+          "headers": [
+            {
+              "name": "Strict-Transport-Security",
+              "value": "max-age=31536000 ; includeSubDomains"
+            },
+            {
+              "name": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "name": "Date",
+              "value": "Sat, 29 Jun 2019 11:38:46 GMT"
+            },
+            {
+              "name": "X-Frame-Options",
+              "value": "DENY"
+            },
+            {
+              "name": "Access-Control-Allow-Methods",
+              "value": "GET, PUT, POST, DELETE, OPTIONS"
+            },
+            {
+              "name": "Content-Type",
+              "value": "image/gif"
+            },
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "http://www.explorer.net, *"
+            },
+            {
+              "name": "Access-Control-Max-Age",
+              "value": "1000"
+            },
+            {
+              "name": "Cache-Control",
+              "value": "private"
+            },
+            {
+              "name": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "name": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            },
+            {
+              "name": "Access-Control-Allow-Headers",
+              "value": "Origin, X-Requested-With, Content-Type, Accept"
+            },
+            {
+              "name": "Content-Length",
+              "value": "43"
+            },
+            {
+              "name": "X-XSS-Protection",
+              "value": "1; mode=block"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 43,
+            "mimeType": "image/gif"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": -1,
+          "_transferSize": 636
+        },
+        "cache": {},
+        "timings": {
+          "blocked": 10.010999999596853,
+          "dns": 29.497,
+          "ssl": 45.038000000000004,
+          "connect": 89.563,
+          "send": 0.19400000000000261,
+          "wait": 33.807000000240166,
+          "receive": 2.5539999987813644,
+          "_blocked_queueing": 6.913999999596854
+        },
+        "serverIPAddress": "104.112.175.178",
+        "_initiator": {
+          "type": "script",
+          "stack": {
+            "callFrames": [],
+            "parent": {
+              "description": "Image",
+              "callFrames": [
+                {
+                  "functionName": "d",
+                  "scriptId": "23",
+                  "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                  "lineNumber": 0,
+                  "columnNumber": 3389
+                },
+                {
+                  "functionName": "b",
+                  "scriptId": "23",
+                  "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                  "lineNumber": 0,
+                  "columnNumber": 3195
+                },
+                {
+                  "functionName": "c",
+                  "scriptId": "23",
+                  "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                  "lineNumber": 0,
+                  "columnNumber": 4931
+                },
+                {
+                  "functionName": "b",
+                  "scriptId": "23",
+                  "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                  "lineNumber": 0,
+                  "columnNumber": 4879
+                }
+              ],
+              "parent": {
+                "description": "setTimeout",
+                "callFrames": [
+                  {
+                    "functionName": "",
+                    "scriptId": "23",
+                    "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                    "lineNumber": 0,
+                    "columnNumber": 5619
+                  }
+                ],
+                "parent": {
+                  "description": "load",
+                  "callFrames": [
+                    {
+                      "functionName": "",
+                      "scriptId": "23",
+                      "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                      "lineNumber": 0,
+                      "columnNumber": 5584
+                    },
+                    {
+                      "functionName": "",
+                      "scriptId": "23",
+                      "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                      "lineNumber": 0,
+                      "columnNumber": 5902
+                    },
+                    {
+                      "functionName": "",
+                      "scriptId": "23",
+                      "url": "https://img1.wsimg.com/tcc/tcc_l.combined.1.0.5.min.js",
+                      "lineNumber": 0,
+                      "columnNumber": 5938
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "_priority": "Low",
+        "_resourceType": "image",
+        "connection": "40093",
+        "pageref": "page_1"
+      }
+    ]
+  }
+}
